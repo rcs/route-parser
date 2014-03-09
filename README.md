@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/rcs/route-parser.png?branch=master)](https://travis-ci.org/rcs/route-parser)
+[![Dependency Status](https://david-dm.org/rcs/route-parser.svg?theme=shields.io)](https://david-dm.org/rcs/route-parser)
+[![devDependency Status](https://david-dm.org/rcs/route-parser/dev-status.svg?theme=shields.io)](https://david-dm.org/rcs/route-parser#info=devDependencies)
 ## What is it?
 
 A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser.
