@@ -1,7 +1,7 @@
 /*global describe, it */
 'use strict';
 var assert = require('chai').assert,
-    Route = require('../lib/route');
+    RouteParser = require('../lib/route');
 
 /* Route, path, expected params, options {name, reversed} */
 var backboneTestCases =  [
@@ -146,13 +146,13 @@ var backboneTestCases =  [
 
   return function() {
     it(testCase[3].name, function() {
-      var route = new Route(routeSpec);
+      var route = new RouteParser(routeSpec);
       assert.deepEqual(route.match(path), captured);
     });
     /* Only reverse routes we expected to succeed */
     if( captured ) {
       it( 'reverses ' + name, function() {
-        var route = new Route(routeSpec);
+        var route = RouteParser(routeSpec);
         assert.equal(route.reverse(captured), reversed);
       });
     }
