@@ -1,6 +1,6 @@
 {
   "name": "route-parser",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser. ",
   "keywords": ["url", "matching", "routing", "route", "regex", "match"],
   "homepage": "http://github.com/rcs/route-parser",
