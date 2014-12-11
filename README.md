@@ -23,9 +23,9 @@ npm install --save route-parser
 ## How do I use it?
 
 ```javascript
-Route = require('route-parser').Route
+Route = require('route-parser');
 var route = new Route('/my/fancy/route/page/:page');
-route.match('/my/fancy/route/p/7') // { page: 7 }
+route.match('/my/fancy/route/page/7') // { page: 7 }
 route.reverse({page: 3}) // -> '/my/fancy/route/page/3'
 ```
 ## What can I use in my routes?
