@@ -26,26 +26,27 @@
   },
   "scripts": {
     "test": "mocha",
+    "test-client": "karma start --singleRun",
     "compile-parser": "scripts/compile_parser.js",
     "clean-compile": "rm ./lib/route/compiled-grammar.js"
   },
   "license": "MIT",
 
   "devDependencies": {
-    "chai": "~1.9.0",
-    "es5-shim": "~2.3.0",
-    "gulp": "~3.5.2",
-    "gulp-jshint": "~1.5.0",
+    "chai": "~3.2.0",
+    "es5-shim": "~4.1.10",
+    "gulp": "~3.9.0",
+    "gulp-exec": "~1.0.4",
+    "gulp-jshint": "~1.11.2",
     "jison": "~0.4.13",
     "jsdoc": "~3.3.0-alpha4",
     "jshint-stylish": "~0.1.5",
-    "karma": "~0.10.9",
-    "karma-phantomjs-launcher": "~0.1.2",
-    "karma-webpack": "~1.0.1",
-    "mocha": "~1.17.1",
-    "webpack": "~1.0.0-rc12",
-    "webpack-dev-server": "~1.2.1",
-    "gulp-exec": "~1.0.4",
-    "karma-mocha": "~0.1.1"
+    "karma": "~0.12.36",
+    "karma-mocha": "~0.1.1",
+    "karma-phantomjs-launcher": "~0.2.0",
+    "karma-webpack": "~1.6.0",
+    "mocha": "~2.2.5",
+    "webpack": "~1.10.5",
+    "webpack-dev-server": "~1.10.1"
   }
 }
