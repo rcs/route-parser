@@ -2,16 +2,23 @@
   "name": "route-parser",
   "version": "0.0.3",
   "description": "A isomorphic, bullet-proof, ninja-ready route parsing, matching, and reversing library for Javascript in Node and the browser. ",
-  "keywords": ["url", "matching", "routing", "route", "regex", "match"],
+  "keywords": [
+    "url",
+    "matching",
+    "routing",
+    "route",
+    "regex",
+    "match"
+  ],
   "homepage": "http://github.com/rcs/route-parser",
   "author": {
-      "name": "Ryan Sorensen",
-      "email": "rcsorensen@gmail.com",
-      "url": "https://github.com/rcs"
+    "name": "Ryan Sorensen",
+    "email": "rcsorensen@gmail.com",
+    "url": "https://github.com/rcs"
   },
   "main": "index.js",
-  "repository" : {
-    "type" : "git",
+  "repository": {
+    "type": "git",
     "url": "https://github.com/rcs/route-parser.git"
   },
   "bugs": {
@@ -25,13 +32,13 @@
     "test": "test"
   },
   "scripts": {
-    "test": "mocha",
+    "test": "mocha && karma start --singleRun",
+    "test-node": "mocha",
     "test-client": "karma start --singleRun",
     "compile-parser": "scripts/compile_parser.js",
     "clean-compile": "rm ./lib/route/compiled-grammar.js"
   },
   "license": "MIT",
-
   "devDependencies": {
     "chai": "~3.2.0",
     "es5-shim": "~4.1.10",
