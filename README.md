@@ -43,6 +43,7 @@ Some examples:
 * `/users/:id/comments/:comment/rating/:rating`
 * `/*a/foo/*b`
 * `/books/*section/:title`
+* `/books?author=:author&subject=:subject`
 
 
 ## How does it work?
