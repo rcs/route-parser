@@ -11,6 +11,15 @@ describe('Route', function() {
     assert.ok(RouteParser('/foo'));
   });
 
+  it('should create with new', function() {
+    assert.ok(new RouteParser('/foo'));
+  });
+
+  it('should have proper prototype', function() {
+    var routeInstance = new RouteParser('/foo')
+    assert.ok(routeInstance instanceof RouteParser);
+  });
+
   it('should throw on no spec',function() {
     assert.throw(function(){ RouteParser(); }, Error, /spec is required/);
   });
