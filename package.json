@@ -45,7 +45,7 @@
     "gulp": "~3.9.0",
     "gulp-exec": "~1.0.4",
     "gulp-jshint": "~1.11.2",
-    "jison": "~0.4.13",
+    "jison": "~0.4.17",
     "jison-lex": "~0.3.4",
     "jsdoc": "~3.3.0-alpha4",
     "jshint-stylish": "~0.1.5",
