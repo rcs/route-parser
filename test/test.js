@@ -151,9 +151,24 @@ describe('Route', function() {
       var route = RouteParser('/foo/:bar');
       assert.equal(route.reverse({}),false);
     });
+
     it('returns false for routes with splat params that can\'t be fulfilled', function() {
       var route = RouteParser('/foo/*bar');
       assert.equal(route.reverse({}),false);
+    });
+
+    // https://git.io/vPBaA
+    it('allows reversing falsy valued params', function() {
+      var path = '/account/json/wall/post/:id/comments/?start=:start&max=:max';
+      var vars = {
+        id:50,
+        start:0,
+        max:12
+      };
+      assert.equal(
+        RouteParser(path).reverse(vars),
+        '/account/json/wall/post/50/comments/?start=0&max=12'
+      );
     });
   });
 });
