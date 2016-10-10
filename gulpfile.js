@@ -1,8 +1,10 @@
-'use strict';
-var gulp = require('gulp'),
-    childProcess = require('child_process'),
-    jshint = require('gulp-jshint');
+/* eslint-disable no-console */
 
+'use strict';
+
+var gulp = require('gulp');
+var childProcess = require('child_process');
+var eslint = require('gulp-eslint');
 
 var realCodePaths = [
   '**/*.{js,jsx,coffee}',
@@ -12,23 +14,22 @@ var realCodePaths = [
   '!docs/**'
 ];
 
-gulp.task('lint', function() {
+gulp.task('lint', function () {
   gulp.src(realCodePaths)
-    .pipe(jshint())
-    .pipe(jshint.reporter('jshint-stylish'));
+    .pipe(eslint())
+    .pipe(eslint.format());
 });
 
-gulp.task('jsdoc', function() {
+gulp.task('jsdoc', function () {
   childProcess.exec(
     './node_modules/.bin/jsdoc -c jsdoc.json',
-    function(error,stdout,stderr) {
+    function (error, stdout, stderr) {
       console.log(stdout);
       console.error(stderr);
     }
   );
 });
 
-gulp.task('default',function() {
-  gulp.watch(realCodePaths, ['lint','jsdoc']);
+gulp.task('default', function () {
+  gulp.watch(realCodePaths, ['lint', 'jsdoc']);
 });
-

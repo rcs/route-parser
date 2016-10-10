@@ -1,9 +1,9 @@
-/*jshint maxlen:120 */
 // Karma configuration
 // Generated on Sat Feb 15 2014 18:21:16 GMT-0800 (PST)
+
 'use strict';
 
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path, that will be used to resolve files and exclude
@@ -49,18 +49,15 @@ module.exports = function(config) {
       }
     },
 
-
-
     // web server port
     port: 9876,
-
 
     // enable / disable colors in the output (reporters and logs)
     colors: true,
 
-
     // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+    // possible values: config.LOG_DISABLE || config.LOG_ERROR
+    // || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
     logLevel: config.LOG_DEBUG,
 
 
