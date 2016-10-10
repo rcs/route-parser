@@ -1,0 +1,4 @@
+node_modules/**
+lib/route/compiled-grammar.js
+coverage/**
+docs/**
