@@ -10,7 +10,7 @@ var parser = new jison.Parser(grammar);
 // eslint-disable-next-line no-underscore-dangle
 parser.lexer = new Lexer(grammar.lex, null, grammar.terminals_);
 
-var compiledGrammar = parser.generate({ moduleType: 'js' });
+var compiledGrammar = parser.generate({ moduleType: 'js' }).replace(/_token_stack:\s?/, '');
 
 
 fs.writeFileSync(
