@@ -171,4 +171,55 @@ describe('Route', function () {
       );
     });
   });
+
+  describe('asRegExp', function () {
+    it('returns regexp for route without params', function () {
+      var route = RouteParser('/foo');
+      var expected = /^\/foo(?=\?|$)/;
+      var actual = route.asRegExp();
+      assert.typeOf(actual, 'regexp');
+      assert.equal(actual.toString(), expected);
+    });
+
+    it('returns regexp for route with simple params', function () {
+      var route = RouteParser('/:foo/:bar');
+      // eslint-disable-next-line no-useless-escape
+      var expected = /^\/([^/\?]+)\/([^/\?]+)(?=\?|$)/;
+      var actual = route.asRegExp();
+      assert.typeOf(actual, 'regexp');
+      if (!global.window) {
+        assert.equal(actual.toString(), expected);
+      }
+    });
+
+    it('returns regexp for route with optional params', function () {
+      var route = RouteParser('/things/(option/:first)');
+      // eslint-disable-next-line no-useless-escape
+      var expected = /^\/things\/(?:option\/([^/\?]+))?(?=\?|$)/;
+      var actual = route.asRegExp();
+      assert.typeOf(actual, 'regexp');
+      if (!global.window) {
+        assert.equal(actual.toString(), expected);
+      }
+    });
+
+    it('returns regexp for route with nested optional params', function () {
+      var route = RouteParser('/things/(option/:first(/second/:second))');
+      // eslint-disable-next-line no-useless-escape
+      var expected = /^\/things\/(?:option\/([^/\?]+)(?:\/second\/([^/\?]+))?)?(?=\?|$)/;
+      var actual = route.asRegExp();
+      assert.typeOf(actual, 'regexp');
+      if (!global.window) {
+        assert.equal(actual.toString(), expected);
+      }
+    });
+
+    it('returns regexp for route with splat', function () {
+      var route = RouteParser('/*a/foo/*b');
+      var expected = /^\/([^?]*?)\/foo\/([^?]*?)(?=\?|$)/;
+      var actual = route.asRegExp();
+      assert.typeOf(actual, 'regexp');
+      assert.equal(actual.toString(), expected);
+    });
+  });
 });
