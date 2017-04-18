@@ -27,6 +27,7 @@ Route = require('route-parser');
 var route = new Route('/my/fancy/route/page/:page');
 route.match('/my/fancy/route/page/7') // { page: 7 }
 route.reverse({page: 3}) // -> '/my/fancy/route/page/3'
+route.asRegExp() // new RegExp(/^\/my\/fancy\/route\/page\/([^/\?]+))?(?=\?|$)/)
 ```
 ## What can I use in my routes?
 

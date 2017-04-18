@@ -171,4 +171,47 @@ describe('Route', function () {
       );
     });
   });
+
+  describe('asRegExp', function () {
+    it('returns regexp for route without params', function () {
+      var route = RouteParser('/foo');
+      var regexp = route.asRegExp();
+      assert.typeOf(regexp, 'regexp');
+      assert.match('/foo', regexp);
+      assert.match('/foo?', regexp);
+      assert.notMatch('/foo/', regexp);
+    });
+
+    it('returns regexp for route with simple params', function () {
+      var route = RouteParser('/:foo/:bar');
+      var regexp = route.asRegExp();
+      assert.typeOf(regexp, 'regexp');
+      assert.match('/red/green', regexp);
+    });
+
+    it('returns regexp for route with optional params', function () {
+      var route = RouteParser('/things/(option/:first)');
+      var regexp = route.asRegExp();
+      assert.typeOf(regexp, 'regexp');
+      assert.match('/things/', regexp);
+      assert.notMatch('/things/option/', regexp);
+      assert.match('/things/option/blue', regexp);
+    });
+
+    it('returns regexp for route with nested optional params', function () {
+      var route = RouteParser('/things/(option/:first(/second/:second))');
+      var regexp = route.asRegExp();
+      assert.typeOf(regexp, 'regexp');
+      assert.match('/things/', regexp);
+      assert.match('/things/option/blue', regexp);
+      assert.match('/things/option/blue/second/red', regexp);
+    });
+
+    it('returns regexp for route with splat', function () {
+      var route = RouteParser('/*a/foo/*b');
+      var regexp = route.asRegExp();
+      assert.typeOf(regexp, 'regexp');
+      assert.match('/zoo/woo/foo/bar/baz', regexp);
+    });
+  });
 });
