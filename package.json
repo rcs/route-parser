@@ -17,6 +17,7 @@
     "url": "https://github.com/rcs"
   },
   "main": "index.js",
+  "typings": "index.d.ts",
   "repository": {
     "type": "git",
     "url": "https://github.com/rcs/route-parser.git"
