@@ -115,6 +115,10 @@ describe('Route', function () {
       var route = RouteParser('/things/(option/:first)');
       assert.deepEqual(route.match('/things/option/bar'), { first: 'bar' });
     });
+    it('escapes parantheses in route', function () {
+      var route = RouteParser('/foo/(option/:first)');
+      assert.deepEqual(route.match('/foo/option/bar()'), { first: 'bar()' });
+    });
 
     describe('nested', function () {
       it('allows nested', function () {
