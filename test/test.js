@@ -78,6 +78,16 @@ describe('Route', function () {
       var route = RouteParser('/*a/foo/*b');
       assert.deepEqual(route.match('/zoo/woo/foo/bar/baz'), { a: 'zoo/woo', b: 'bar/baz' });
     });
+
+    it('escapes asterisk in route', function () {
+      var route = RouteParser('/foo?bar=%2Atest&*a=splat');
+      assert.deepEqual(route.match('/foo?bar=*test&marker=splat'), { a: 'marker' });
+    });
+
+    it('escapes multiple asterisks', function () {
+      var route = RouteParser('/foo?bar=%2Atest&*a=splat&foo=%2Abar');
+      assert.deepEqual(route.match('/foo?bar=*test&marker=splat&foo=*bar'), { a: 'marker' });
+    });
   });
 
   describe('mixed', function () {
@@ -104,6 +114,10 @@ describe('Route', function () {
     it('allows optional branches that start with a word character', function () {
       var route = RouteParser('/things/(option/:first)');
       assert.deepEqual(route.match('/things/option/bar'), { first: 'bar' });
+    });
+    it('escapes parantheses in route', function () {
+      var route = RouteParser('/foo/(option/:first)');
+      assert.deepEqual(route.match('/foo/option/bar()'), { first: 'bar()' });
     });
 
     describe('nested', function () {
