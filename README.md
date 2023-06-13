@@ -32,8 +32,8 @@ route.reverse({page: 3}) // -> '/my/fancy/route/page/3'
 
 | Example         | Description          |
 | --------------- | -------- |
-| `:name`         |  a parameter to capture from the route up to `/`, `?`, or end of string  |
-| `*splat`        |  a splat to capture from the route up to `?` or end of string |
+| `:name`         |  a parameter to capture from the route up to `/`, `?`, `#`, or end of string  |
+| `*splat`        |  a splat to capture from the route up to `?`, `#`, or end of string |
 | `()`            |  Optional group that doesn't have to be part of the query. Can contain nested optional groups, params, and splats
 | anything else   | free form literals |
 

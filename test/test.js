@@ -35,6 +35,11 @@ describe('Route', function () {
       assert.ok(route.match('/foo?query'));
     });
 
+    it('should match /foo with a path of /foo#hash', function () {
+      var route = RouteParser('/foo');
+      assert.ok(route.match('/foo#hash'));
+    });
+
     it('shouldn\'t match /foo with a path of /bar/foo', function () {
       var route = RouteParser('/foo');
       assert.notOk(route.match('/bar/foo'));
@@ -55,6 +60,16 @@ describe('Route', function () {
     it('should match /users/:id with a path of /users/1', function () {
       var route = RouteParser('/users/:id');
       assert.ok(route.match('/users/1'));
+    });
+
+    it('should match /users/:id with a path of /users/1?query', function () {
+      var route = RouteParser('/users/:id');
+      assert.ok(route.match('/users/1?query'));
+    });
+
+    it('should match /users/:id with a path of /users/1#hash', function () {
+      var route = RouteParser('/users/:id');
+      assert.ok(route.match('/users/1#hash'));
     });
 
     it('should not match /users/:id with a path of /users/', function () {
